@@ -1,0 +1,61 @@
+USER DATA COMMANDS:
+
+#!/bin/bash
+sudo su
+yum update -y
+yum install httpd -y
+cd /var/www/html
+echo ''--------''>index.html
+systemctl start httpd.service
+chkconfig httpd on
+
+
+ 
+DEFAULT APPLICATIION :
+
+sudo su
+yum install httpd
+y  (yes) enter
+systemctl status httpd.service
+systemctl start httpd.service
+
+
+CUSTOM APPLICATION :
+ 
+cd /var/www/html
+vi index.html
+
+(insert)---i
+
+type----------matter
+
+ then, Escape(esc) 
+       shift :
+        wq - to save & exit
+
+
+
+chomd 777 - when server not working search this command
+
+
+
+
+vpc custom application:   (connect private ip with public server)
+create vpc
+create subnet
+create RT(route table)
+create internet gatteway(igw)-(for public srver)
+create nat(for private server)
+create 2 ec2 instances ____i,e., public & private instances......
+ 
+connect with public server.....
+
+ping google.com
+ctrl c    (clear)
+ssh ec2-user@_______(private ip)
+vi....(given server name- with no space)
+inset i
+paste pem key file...........
+esc    shift :   wq
+chmod 600 .....(given server name- with no space)
+ssh -i ...(given server name- with no space) ec2-user@.....(private ip)
